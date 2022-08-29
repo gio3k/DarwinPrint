@@ -1,0 +1,50 @@
+From ba2ada45d841e36d1c1069d679c006b5b44fcce3 Mon Sep 17 00:00:00 2001
+From: lotuspar <91263142+lotuspar@users.noreply.github.com>
+Date: Sat, 30 Jul 2022 05:44:00 +0800
+Subject: [PATCH] Fix exception on iOS in _get_localzone
+
+iOS doesn't come with systemsetup so we need to watch for a FileNotFoundError
+---
+ babel/localtime/_unix.py | 26 +++++++++++++++-----------
+ 1 file changed, 15 insertions(+), 11 deletions(-)
+
+diff --git a/babel/localtime/_unix.py b/babel/localtime/_unix.py
+index 28b2533..66cb894 100644
+--- a/babel/localtime/_unix.py
++++ b/babel/localtime/_unix.py
+@@ -65,17 +65,21 @@ def _get_localzone(_root='/'):
+     # since it knows where the zone files are that should be a bit
+     # better than reimplementing the logic here.
+     if sys.platform == 'darwin':
+-        c = subprocess.Popen(['systemsetup', '-gettimezone'],
+-                             stdout=subprocess.PIPE)
+-        sys_result = c.communicate()[0]
+-        c.wait()
+-        tz_match = _systemconfig_tz.search(sys_result)
+-        if tz_match is not None:
+-            zone_name = tz_match.group(1)
+-            try:
+-                return pytz.timezone(zone_name)
+-            except pytz.UnknownTimeZoneError:
+-                pass
++        try:
++            c = subprocess.Popen(['systemsetup', '-gettimezone'],
++                                stdout=subprocess.PIPE)
++            sys_result = c.communicate()[0]
++            c.wait()
++            tz_match = _systemconfig_tz.search(sys_result)
++            if tz_match is not None:
++                zone_name = tz_match.group(1)
++                try:
++                    return pytz.timezone(zone_name)
++                except pytz.UnknownTimeZoneError:
++                    pass
++        # iOS doesn't come with systemsetup
++        except FileNotFoundError: 
++            pass
+ 
+     # Now look for distribution specific configuration files
+     # that contain the timezone name.
+-- 
+2.37.1
+
