@@ -1,0 +1,23 @@
+From 979f9ca2da0f973fd8c9f1cf6bd51004e6ad6d22 Mon Sep 17 00:00:00 2001
+From: lotuspar <lotuspar0@gmail.com>
+Date: Sun, 31 Jul 2022 06:52:14 +0800
+Subject: [PATCH] Force HAVE_GETIFADDRS on all platforms
+
+iOS doesn't seem to be building this right without it
+---
+ netifaces.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/netifaces.c b/netifaces.c
+index 839c42c..e177614 100644
+--- a/netifaces.c
++++ b/netifaces.c
+@@ -1,4 +1,5 @@
+ #include <Python.h>
++#define HAVE_GETIFADDRS 1 // force HAVE_GETIFADDRS no matter what platform
+ 
+ /* Before Python 2.6, PyUnicode_FromString doesn't exist */
+ #if PY_MAJOR_VERSION < 2 || (PY_MAJOR_VERSION == 2 && PY_MINOR_VERSION < 6)
+-- 
+2.37.1
+
