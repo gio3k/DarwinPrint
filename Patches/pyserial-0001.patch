@@ -1,0 +1,30 @@
+From 653518e3a6e89c5a96d554ff356fb409d81e665e Mon Sep 17 00:00:00 2001
+From: lotuspar <91263142+lotuspar@users.noreply.github.com>
+Date: Mon, 29 Aug 2022 19:46:13 +0800
+Subject: [PATCH] fix: pass error setting pty baudrate on Darwin
+
+---
+ serial/serialposix.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/serial/serialposix.py b/serial/serialposix.py
+index 0464075..b5abaf6 100644
+--- a/serial/serialposix.py
++++ b/serial/serialposix.py
+@@ -229,7 +229,12 @@ elif plat[:6] == 'darwin':   # OS X
+             def _set_special_baudrate(self, baudrate):
+                 # use IOKit-specific call to set up high speeds
+                 buf = array.array('i', [baudrate])
+-                fcntl.ioctl(self.fd, IOSSIOSPEED, buf, 1)
++                try:
++                    fcntl.ioctl(self.fd, IOSSIOSPEED, buf, 1)
++                except OSError as e:
++                    if e.errno is 25: # (25): Inappropriate ioctl for device
++                        pass
++                    raise e
+ 
+         def _update_break_state(self):
+             """\
+-- 
+2.37.1
+
