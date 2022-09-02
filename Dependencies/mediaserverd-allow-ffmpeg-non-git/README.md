@@ -2,7 +2,7 @@ This dynamic library / MobileLoader tweak allows executables *named* ffmpeg the 
 
 ## Where's the source code?
 #####  (or "will the source code be released?")
-The source code is left private for now on purpose to keep a little barrier up from people who want to use this code for evil. \
+The source code is left private for now to keep a little barrier up from people who want to use this code for evil. \
 While it's *technically* possible to patch the library to remove the alert / change the allowed executable name, a developer that's proficient enough to do that could just make their own library (this method *is* [public](https://blog.zecops.com/research/how-ios-malware-can-spy-on-users-silently/), but please don't) \
 I've done my best to make this library as forward as possible about what it does (see next section)
 
