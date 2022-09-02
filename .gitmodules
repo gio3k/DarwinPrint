@@ -1,0 +1,3 @@
+[submodule "Dependencies/usbselfserial"]
+	path = Dependencies/usbselfserial
+	url = https://github.com/lotuspar/usbselfserial
