@@ -1,3 +1,15 @@
 [submodule "Dependencies/usbselfserial"]
 	path = Dependencies/usbselfserial
 	url = https://github.com/lotuspar/usbselfserial
+[submodule "Dependencies/netifaces"]
+	path = Dependencies/netifaces
+	url = https://github.com/al45tair/netifaces.git
+[submodule "Dependencies/babel"]
+	path = Dependencies/babel
+	url = https://github.com/python-babel/babel.git
+[submodule "Dependencies/pyserial"]
+	path = Dependencies/pyserial
+	url = https://github.com/pyserial/pyserial.git
+[submodule "Dependencies/can-utils-osx"]
+	path = Dependencies/can-utils-osx
+	url = https://github.com/carloop/can-utils-osx.git

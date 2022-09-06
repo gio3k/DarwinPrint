@@ -1,0 +1,11 @@
+thanks to all the developers of these dependencies!
+although they aren't really part of DarwinPrint (most of these are used in Klipper / OctoPrint), they are an important part of getting them to work
+
+argparse is downloaded during the install so theres no proper credit for that, so here it is! thanks argparse (Argument Parser for Modern C++)
+
+babel is used for OctoPrint: thanks!
+netifaces is used for OctoPrint: thanks!
+pyserial is used for BOTH: thanks!
+can-utils-osx is used for Klipper: thanks!
+
+klipper and octoprint are both obviously very important too, so thanks to the developers of those!
