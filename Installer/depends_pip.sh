@@ -6,7 +6,7 @@ source inc/echorun.sh
 source inc/text.sh
 echo "${__header}Pip Dependency Installer${__reset}"
 
-echorun export CPPFLAGS=${INST_SYS_CPPFLAGS}
+echorun export CPPFLAGS="{INST_SYS_CPPFLAGS}"
 
 echorun python3 -m pip install --user virtualenv
 echorun python3 -m pip install --user wheel
