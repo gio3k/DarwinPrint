@@ -18,26 +18,20 @@ As there aren't any launch daemons set up during the install you have to run the
 
 ## Experimental Running
 This is the way I use for testing while I haven't set up launch daemons. \
+
 You need a way to run multiple terminals, so run:
 ```
 sudo apt install tmux
 ```
-### OctoPrint
-Then it's pretty painless to run OctoPrint: 
+### OctoPrint & Klippy
+Then it's pretty painless to run OctoPrint and/or Klippy: 
 ```
 tmux new-session -d -s octoprint /usr/bin/start-octoprint.sh
+tmux new-session -d -s klippy /usr/bin/start-klippy.sh
 ```
-To check up on it later (but ignore for now probably, use CTRL+B -> D to detach): 
+To check up on them later (use CTRL+B -> D to detach): 
 ```
 tmux attach-session -t octoprint
-``` 
-### Klippy
-Running klippy is a bit more annoying due to its tendency to crash on startup, so run the tmux without detaching and manually relaunch it if it crashes (use CTRL+B -> D to detach) :
-```
-tmux new-session -s klippy /usr/bin/start-klippy.sh
-```
-To check up on it later: 
-```
 tmux attach-session -t klippy
 ``` 
 ### usbselfserial loader
