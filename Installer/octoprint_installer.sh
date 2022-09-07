@@ -21,3 +21,4 @@ OCTO_ARGS=""
 \$OCTO_EXEC \$OCTO_ARGS serve
 EOF
 echo "Created octoprint launch script @ /usr/bin/start-octoprint.sh"
+echorun sudo chmod +x /usr/bin/start-octoprint.sh

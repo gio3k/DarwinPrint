@@ -27,6 +27,8 @@ sudo /bin/sh -c "cat > /usr/bin/start-klippy.sh" <<EOF
 export CPATH=$__canutilsosx_repo/x/can
 KLIPPY_EXEC=$__klipper_env_dir/bin/python
 KLIPPY_ARGS="$__klipper_dir/klippy/klippy.py $__config_dir/printer.cfg -l $__instance_dir/klippy.log"
+echo "There's a good chance klippy crashes on launch and then works fine. Just relaunch it until it works for now."
 \$KLIPPY_EXEC \$KLIPPY_ARGS
 EOF
 echo "Created klipper launch script @ /usr/bin/start-klippy.sh"
+echorun sudo chmod +x /usr/bin/start-klippy.sh
