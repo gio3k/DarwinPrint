@@ -46,9 +46,9 @@ Make sure to use the right baudrate for your printer though:
 -> for Marlin (probably) use -r 115200
 -> for Klipper (probably) use -r 250000
 ```
-You should also be able to run this like the other 2:
+You should also be able to run this like the other 2 (but don't detach so you can enter the sudo password):
 ```
-tmux new-session -d -s uss uss_loader (arguments)
+tmux new-session -s uss uss_loader (arguments)
 ```
 To check up on it later (use CTRL+B -> D to detach): 
 ```
