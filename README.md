@@ -46,7 +46,11 @@ Make sure to use the right baudrate for your printer though:
 -> for Marlin (probably) use -r 115200
 -> for Klipper (probably) use -r 250000
 ```
-You should also be able to run this like the other 2 (use CTRL+B -> D to detach):
+You should also be able to run this like the other 2:
 ```
 tmux new-session -d -s uss uss_loader (arguments)
+```
+To check up on it later (use CTRL+B -> D to detach): 
+```
+tmux new-session -t uss_loader
 ```
