@@ -13,10 +13,11 @@ test -d $__octoprint_env_dir || echorun python3 -m virtualenv -p python3 $__octo
 echorun $__octoprint_env_dir/bin/pip install --no-binary :all: octoprint
 
 # Create basic launch script
-echorun sudo /bin/sh -c "cat > /usr/bin/start-octoprint.sh" <<EOF
+sudo /bin/sh -c "cat > /usr/bin/start-octoprint.sh" <<EOF
 #!/bin/bash
 # Start OctoPrint
 OCTO_EXEC=$__octoprint_env_dir/bin/octoprint
 OCTO_ARGS=""
 \$OCTO_EXEC \$OCTO_ARGS serve
 EOF
+echo "Created octoprint launch script @ /usr/bin/start-octoprint.sh"

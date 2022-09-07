@@ -21,7 +21,7 @@ test -d $__klipper_env_dir || echorun python3 -m virtualenv -p python3 $__klippe
 echorun $__klipper_env_dir/bin/pip install --no-binary :all: -r $__klipper_dir/scripts/klippy-requirements.txt
 
 # Create basic launch script
-echorun sudo /bin/sh -c "cat > /usr/bin/start-klippy.sh" <<EOF
+sudo /bin/sh -c "cat > /usr/bin/start-klippy.sh" <<EOF
 #!/bin/bash
 # Start klippy 
 export CPATH=$__canutilsosx_repo/x/can
@@ -29,3 +29,4 @@ KLIPPY_EXEC=$__klipper_env_dir/bin/python
 KLIPPY_ARGS="$__klipper_dir/klippy/klippy.py $__config_dir/printer.cfg -l $__instance_dir/klippy.log"
 \$KLIPPY_EXEC \$KLIPPY_ARGS
 EOF
+echo "Created klipper launch script @ /usr/bin/start-klippy.sh"
