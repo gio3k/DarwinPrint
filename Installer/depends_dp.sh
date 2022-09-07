@@ -80,7 +80,7 @@ cd ${__pre_install_pwd}
 echorun mv $__canutilsosx_repo/x/can/lib $__canutilsosx_repo/x/can/linux
 
 # Compile usbselfserial loader
-echorun g++ $__usbselfserial_repo/loader.cpp -O2 -lusb -std=c++17 -o /tmp/uss_loader
+echorun g++ $__usbselfserial_repo/loader.cpp -O2 `pkg-config --libs --cflags libusb-1.0` -std=c++17 -o /tmp/uss_loader
 if [ $? -ne 0 ]; then
     echo "Failed to compile usbselfserial."
     exit 1

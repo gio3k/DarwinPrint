@@ -30,7 +30,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Install required packages
-echorun sudo apt --yes install clang dsymutil odcctools text-cmds python3.9 libpython3.9 libpython3.9-dev python3-psutil python3-yaml libffi-dev
+echorun sudo apt --yes install pkg-config clang dsymutil odcctools text-cmds python3.9 libpython3.9 libpython3.9-dev python3-psutil python3-yaml libffi-dev
 if [ $? -ne 0 ]; then
     echo "(2) Failed to install Group 2 of packages. Are you sure you're running Procursus?"
     exit 1
