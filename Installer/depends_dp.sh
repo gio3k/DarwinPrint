@@ -7,7 +7,7 @@ source inc/text.sh
 echo "${__header}Submodule Dependency Installer${__reset}"
 __pre_install_pwd=$PWD
 
-echorun export CPPFLAGS="{INST_SYS_CPPFLAGS}"
+echorun export CPPFLAGS="$INST_SYS_CPPFLAGS"
 
 echo "${__subheader}Patching submodules${__reset}"
 __argparse_src="https://raw.githubusercontent.com/p-ranav/argparse/master/include/argparse/argparse.hpp"
