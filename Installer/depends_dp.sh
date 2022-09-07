@@ -22,7 +22,7 @@ __canutilsosx_repo=$INST_CFG_OUTPUT/Dependencies/can-utils-osx
 __usbselfserial_repo=$INST_CFG_OUTPUT/Dependencies/usbselfserial
 
 # Install argparse to usbselfserial folder
-echorun curl -L https://raw.githubusercontent.com/p-ranav/argparse/master/include/argparse/argparse.hpp -o ${INST_CFG_OUTPUT}/
+echorun curl -L https://raw.githubusercontent.com/p-ranav/argparse/master/include/argparse/argparse.hpp -o $__usbselfserial_repo/argparse.hpp
 if [ $? -ne 0 ]; then
     echo "Failed to install argparse. Please try to rerun the installer."
     exit 1
