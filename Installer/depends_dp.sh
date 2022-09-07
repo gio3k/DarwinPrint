@@ -12,11 +12,11 @@ echorun export CPPFLAGS="$INST_SYS_CPPFLAGS"
 echo "${__subheader}Patching submodules${__reset}"
 __argparse_src="https://raw.githubusercontent.com/p-ranav/argparse/master/include/argparse/argparse.hpp"
 __argparse_out=$INST_CFG_OUTPUT/Dependencies/usbselfserial/argparse.hpp
-__netifaces_patch_0001=$INST_CFG_OUTPUT/Patches/netifaces-0001.patch
+__netifaces_patch_0001=$INST_CFG_OUTPUT/Dependencies/Patches/netifaces-0001.patch
 __netifaces_repo=$INST_CFG_OUTPUT/Dependencies/netifaces
-__babel_patch_0001=$INST_CFG_OUTPUT/Patches/babel-0001.patch
+__babel_patch_0001=$INST_CFG_OUTPUT/Dependencies/Patches/babel-0001.patch
 __babel_repo=$INST_CFG_OUTPUT/Dependencies/babel
-__pyserial_patch_0001=$INST_CFG_OUTPUT/Patches/pyserial-0001.patch
+__pyserial_patch_0001=$INST_CFG_OUTPUT/Dependencies/Patches/pyserial-0001.patch
 __pyserial_repo=$INST_CFG_OUTPUT/Dependencies/pyserial
 __canutilsosx_repo=$INST_CFG_OUTPUT/Dependencies/can-utils-osx
 __usbselfserial_repo=$INST_CFG_OUTPUT/Dependencies/usbselfserial
