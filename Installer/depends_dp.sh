@@ -33,22 +33,19 @@ echorun export EMAIL=root@localhost
 echorun cd $__netifaces_repo
 echorun git am $__netifaces_patch_0001
 if [ $? -ne 0 ]; then
-    echo "Failed to patch netifaces. Please try to rerun the installer."
-    exit 1
+    echo "Failed to patch netifaces. The installer might not finish."
 fi
 
 echorun cd $__babel_repo
 echorun git am $__babel_patch_0001
 if [ $? -ne 0 ]; then
-    echo "Failed to patch babel. Please try to rerun the installer."
-    exit 1
+    echo "Failed to patch babel. The installer might not finish."
 fi
 
 echorun cd $__pyserial_repo
 echorun git am $__pyserial_patch_0001
 if [ $? -ne 0 ]; then
-    echo "Failed to patch pyserial. Please try to rerun the installer."
-    exit 1
+    echo "Failed to patch pyserial. The installer might not finish."
 fi
 
 echo "Patched submodules."
