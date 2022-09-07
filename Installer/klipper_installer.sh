@@ -23,12 +23,16 @@ echorun $__klipper_env_dir/bin/pip install --no-binary :all: -r $__klipper_dir/s
 # Create basic launch script
 sudo /bin/sh -c "cat > /usr/bin/start-klippy.sh" <<EOF
 #!/bin/bash
-# Start klippy 
+# Start klippy
 export CPATH=$__canutilsosx_repo/x/can
 KLIPPY_EXEC=$__klipper_env_dir/bin/python
 KLIPPY_ARGS="$__klipper_dir/klippy/klippy.py $__config_dir/printer.cfg -l $__instance_dir/klippy.log"
-echo "There's a good chance klippy crashes on launch and then works fine. Just relaunch it until it works for now."
-\$KLIPPY_EXEC \$KLIPPY_ARGS
+echo "There's a good chance klippy crashes on launch and then works fine."
+echo "(Klippy might not output anything, if it's not crashing repeatedly its fine)"
+until \$KLIPPY_EXEC \$KLIPPY_ARGS; do
+    echo "Klippy crashed, retrying! (code \$?)" >&2
+    sleep 1
+done
 EOF
 echo "Created klipper launch script @ /usr/bin/start-klippy.sh"
 echorun sudo chmod +x /usr/bin/start-klippy.sh
