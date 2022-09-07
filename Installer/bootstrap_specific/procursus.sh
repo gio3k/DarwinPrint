@@ -23,7 +23,7 @@ fi
 echorun sudo apt upgrade
 
 # Install some basic necessity packages
-echorun sudo apt --yes install git curl xz tar ldid clang bash make gzip wget libusb-1.0-0 libusb-1.0-0-dev
+echorun sudo apt --yes install git curl xz tar ldid clang bash make gzip wget libusb-1.0-0 libusb-1.0-0-dev usbutils
 if [ $? -ne 0 ]; then
     echo "(1) Failed to install Group 1 of packages. Are you sure you're running Procursus?"
     exit 1
