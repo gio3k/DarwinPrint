@@ -28,6 +28,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echorun export EMAIL=root@localhost
+
 echorun cd $__netifaces_repo
 echorun git am $__netifaces_patch_0001
 if [ $? -ne 0 ]; then
