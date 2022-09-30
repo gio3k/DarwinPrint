@@ -17,7 +17,7 @@ If it finished successfully you should have Klipper, OctoPrint & the usbselfseri
 As there aren't any launch daemons set up during the install you have to run the tools from the terminal. (look at next section)
 
 ## Experimental Running
-This is the way I use for testing while I haven't set up launch daemons. \
+This is the way I use for testing while I haven't set up launch daemons.
 
 You need a way to run multiple terminals, so run:
 ```
