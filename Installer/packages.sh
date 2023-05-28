@@ -16,7 +16,7 @@ run_installer_bootstrap_specific() {
 
     echo "No known package installer found for your device."
     echo "Falling back to Procursus package installer."
-    echorun source bootstrap_specific/dummy.sh
+    echorun source bootstrap_specific/procursus.sh
 }
 
 run_installer_bootstrap_specific
