@@ -13,7 +13,7 @@ sudo echo "Ready 🔓"
 
 # Update packages
 # (really just making sure we have APT installed)
-echorun sudo apt update
+echorun sudo apt update --allow-insecure-repositories
 if [ $? -ne 0 ]; then
     echo "Failed to update packages. Are you sure you're running Procursus?"
     exit 1
